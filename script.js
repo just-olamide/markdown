@@ -33,7 +33,6 @@ class Employee {
   }
 
   getAnnualSalary() {
-    // const employee = new Employee;
     return `${this.name} ${this.position} ${this.salary * 12}`;
   }
 }
@@ -117,16 +116,19 @@ class BankAccount {
     console.log(`Deposited $${amount}. Current balance: $${this.balance}`);
   }
   withdraw(amount) {
-    if (amount > this.balance) {
-      console.log("insufficient");
+    if (amount <= this.balance) {
+        this.balance -= amount;
+        console.log(`${amount} withdrawn. New balance: $${this.balance}`);
+        
     } else {
-      this.balance - amount;
-      console.log(`Withdraw $${amount}. Current balance: $${this.balance}`);
+      
+      console.log("insufficient funds");
     }
   }
 }
 
-let account = new BankAccount("Lawal Zaynab", 1000);
-account.deposit(100);
-account.withdraw(200);
-account.withdraw(300);
+let account1 = new BankAccount("Lawal Zaynab", 1000);
+account1.deposit(100);
+account1.withdraw(200);
+// console.log(account1.getBalance());
+
