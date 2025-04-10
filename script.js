@@ -17,8 +17,8 @@ const myBook = new Book("Broken", "Fatima Bala", 2023);
 
 const myBook2 = new Book("Things fall apart", "chinue achebe", 1958);
 
-console.table(myBook);
-console.table(myBook2);
+console.log(myBook.getBookInfo());
+console.log(myBook2.getBookInfo());
 
 // step2
 //     - Create an `Employee` class with properties `name`, `position`, and `salary`.
@@ -68,10 +68,10 @@ class Car extends Vehicle {
 }
 
 const myCar = new Car("Tesla", "SUV", 2024, "power");
-console.table(myCar);
+console.log(myCar.getCarDetails());
 
 const myCar2 = new Car("G-wagon", "G63", 2023, "fuel");
-console.table(myCar2);
+console.log(myCar2.getCarDetails());
 
 // step4
 // Online Shopping Cart (Static Methods)
@@ -131,4 +131,73 @@ let account1 = new BankAccount("Lawal Zaynab", 1000);
 account1.deposit(100);
 account1.withdraw(200);
 // console.log(account1.getBalance());
+
+class Device {
+  constructor(brand, model, year){
+this.brand = brand;
+this.model = model;
+this.year = year;
+  }
+  getDeviceInfo(){
+    retun `${this.brand} ${this.model} ${this.year}`;
+  }
+}
+class Smartphone extends Device{
+  constructor(brand,model,year,os){
+    super(brand,model,year);
+this.os = os;
+  }
+}
+const myPhone = new Smartphone("Iphone", "15promax", 2023,"os 15")
+console.table(myPhone);
+
+// step7
+class Person {
+  constructor(name, age){
+this.name = name;
+this.age = age;
+  }
+  getDetails(){
+    return `${this.name} ${this.age}`;
+  }
+}
+class Student extends Person {
+  constructor (name, age, course, grade){
+super(name,age);
+this.course = course;
+this.grade = grade;
+  }
+  getStudentInfo(){
+    return `${this.name} ${this.age} ${this.course} ${this.grade}`;
+  }
+}
+
+const student1 = new Student ("Zaynab",20,"Biochemistry",4.0);
+console.log(student1.getStudentInfo());
+
+// step8
+
+class Order {
+  constructor(orderId,customerName){
+    this.orderId = orderId;
+    this.customerName = customerName;
+  }
+  getOrderDetails(){
+    return `${this.orderId} ${this.customerName}`;
+  }
+}
+class ProductOrder extends Order {
+  constructor(orderId,customerName,productName,price){
+super(orderId,customerName);
+this.productName = productName;
+this.price = price;
+  }
+  getProductOrder(){
+    return `${this.orderId} ${this.customerName} ${this.productName} ${this.price}`;
+  }
+}
+
+const product = new ProductOrder (123, "Zaynab", "pizza", 300);
+console.log(product.getProductOrder());
+
 
